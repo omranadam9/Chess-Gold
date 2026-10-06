@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Chess Gold — سياسة الخصوصية</title>
+<style>
+  :root {
+    --bg: #0e0b06;
+    --bg-2: #17120a;
+    --card: #1d170c;
+    --gold: #d4af37;
+    --gold-light: #f5d97a;
+    --gold-dark: #9a7b1c;
+    --text: #efe6cf;
+    --muted: #b3a782;
+    --line: rgba(212, 175, 55, 0.25);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: -apple-system, "SF Pro Text", "Segoe UI", Tahoma, "Noto Naskh Arabic", sans-serif;
+    background:
+      radial-gradient(circle at 50% -10%, rgba(212,175,55,0.18), transparent 55%),
+      linear-gradient(180deg, var(--bg-2), var(--bg));
+    color: var(--text);
+    line-height: 1.9;
+    min-height: 100vh;
+    padding: env(safe-area-inset-top) 0 env(safe-area-inset-bottom);
+  }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 24px 18px 56px; }
+
+  .lang-toggle {
+    display: flex; justify-content: flex-end; margin-bottom: 8px;
+  }
+  .lang-toggle button {
+    background: transparent; color: var(--gold-light);
+    border: 1px solid var(--gold-dark); border-radius: 999px;
+    padding: 6px 18px; font-size: 14px; cursor: pointer;
+    transition: all .2s;
+  }
+  .lang-toggle button:hover { background: var(--gold); color: #1a1405; }
+
+  header { text-align: center; padding: 20px 0 30px; }
+  .crown {
+    font-size: 54px; line-height: 1;
+    filter: drop-shadow(0 4px 14px rgba(212,175,55,.5));
+  }
+  .brand {
+    font-size: 40px; font-weight: 800; letter-spacing: 1px; margin-top: 6px;
+    background: linear-gradient(135deg, var(--gold-light), var(--gold) 50%, var(--gold-dark));
+    -webkit-background-clip: text; background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family: Georgia, "Times New Roman", serif;
+  }
+  .page-title { font-size: 20px; color: var(--muted); margin-top: 4px; }
+  .divider {
+    height: 2px; width: 120px; margin: 18px auto 0; border-radius: 2px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  }
+
+  .badges {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 12px; margin: 8px 0 28px;
+  }
+  .badge {
+    background: linear-gradient(160deg, #241c0d, var(--card));
+    border: 1px solid var(--line); border-radius: 16px;
+    padding: 16px 12px; text-align: center;
+  }
+  .badge .ico { font-size: 26px; }
+  .badge .t { color: var(--gold-light); font-weight: 700; margin-top: 4px; }
+  .badge .d { color: var(--muted); font-size: 13px; line-height: 1.6; margin-top: 2px; }
+
+  section {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    padding: 20px 20px 18px;
+    margin-bottom: 14px;
+  }
+  section h2 {
+    font-size: 18px; color: var(--gold); margin-bottom: 8px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  section h2::before {
+    content: ""; width: 8px; height: 22px; border-radius: 4px;
+    background: linear-gradient(180deg, var(--gold-light), var(--gold-dark));
+  }
+  section p { color: var(--text); font-size: 15.5px; }
+  section ul { padding-inline-start: 22px; margin-top: 6px; }
+  section li { margin: 4px 0; font-size: 15.5px; }
+  section li::marker { color: var(--gold); }
+
+  .contact-list { display: grid; gap: 10px; margin-top: 10px; }
+  .contact-item {
+    display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+    background: linear-gradient(160deg, #241c0d, #1a1409);
+    border: 1px solid var(--line); border-radius: 14px;
+    padding: 12px 16px; text-decoration: none; color: var(--text);
+    transition: border-color .2s, transform .1s;
+  }
+  .contact-item:hover { border-color: var(--gold); }
+  .contact-item:active { transform: scale(.99); }
+  .contact-item .ico { font-size: 22px; }
+  .contact-item .lbl { color: var(--muted); font-size: 14px; }
+  .contact-item .val {
+    color: var(--gold-light); font-weight: 700; font-size: 15.5px;
+    margin-inline-start: auto; unicode-bidi: isolate;
+  }
+
+  .updated { text-align: center; color: var(--muted); font-size: 13px; margin-top: 22px; }
+
+  .back {
+    display: block; width: 100%; margin-top: 22px;
+    background: linear-gradient(135deg, var(--gold-light), var(--gold) 55%, var(--gold-dark));
+    color: #1a1405; font-weight: 800; font-size: 17px;
+    border: none; border-radius: 14px; padding: 14px; cursor: pointer;
+    box-shadow: 0 8px 24px rgba(212,175,55,.25);
+  }
+  .back:active { transform: scale(.98); }
+
+  [data-lang="en"] { display: none; }
+  html[lang="en"] [data-lang="en"] { display: revert; }
+  html[lang="en"] [data-lang="ar"] { display: none; }
+  html[lang="en"] .badge [data-lang="en"],
+  html[lang="en"] .page-title [data-lang="en"] { display: inline; }
+  html[lang="en"] .badge .t[data-lang="en"],
+  html[lang="en"] .badge .d[data-lang="en"] { display: block; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="lang-toggle">
+    <button id="toggle" type="button">English</button>
+  </div>
+
+  <header>
+    <div class="crown">♞</div>
+    <div class="brand">Chess Gold</div>
+    <div class="page-title">
+      <span data-lang="ar">سياسة الخصوصية</span>
+      <span data-lang="en">Privacy Policy</span>
+    </div>
+    <div class="divider"></div>
+  </header>
+
+  <div class="badges">
+    <div class="badge">
+      <div class="ico">🚫</div>
+      <div class="t" data-lang="ar">بدون إعلانات</div>
+      <div class="t" data-lang="en">No Ads</div>
+      <div class="d" data-lang="ar">تجربة لعب نقية دون مقاطعة</div>
+      <div class="d" data-lang="en">A clean, uninterrupted experience</div>
+    </div>
+    <div class="badge">
+      <div class="ico">🔒</div>
+      <div class="t" data-lang="ar">بدون جمع بيانات</div>
+      <div class="t" data-lang="en">No Data Collection</div>
+      <div class="d" data-lang="ar">لا نأخذ أي بيانات منك</div>
+      <div class="d" data-lang="en">We collect nothing from you</div>
+    </div>
+    <div class="badge">
+      <div class="ico">📱</div>
+      <div class="t" data-lang="ar">إعدادات على جهازك</div>
+      <div class="t" data-lang="en">Settings Stay on Device</div>
+      <div class="d" data-lang="ar">تُحفظ محلياً فقط</div>
+      <div class="d" data-lang="en">Stored locally only</div>
+    </div>
+  </div>
+
+  <!-- ARABIC -->
+  <div data-lang="ar">
+    <section>
+      <h2>مقدمة</h2>
+      <p>خصوصيتك تهمنا. لعبة <strong>Chess Gold</strong> لعبة شطرنج بسيطة وممتعة، صُممت لتلعب دون إعلانات ودون أن تُجمع أي بيانات عنك. توضح هذه الصفحة ما يفعله التطبيق وما لا يفعله.</p>
+    </section>
+
+    <section>
+      <h2>البيانات التي نجمعها</h2>
+      <p>لا يجمع التطبيق أي بيانات شخصية من المستخدم. لا نطلب إنشاء حساب، ولا نجمع اسمك أو بريدك الإلكتروني أو موقعك أو معرّف جهازك، ولا نرسل أي معلومات إلى خوادم خارجية.</p>
+    </section>
+
+    <section>
+      <h2>الإعدادات المحفوظة على جهازك</h2>
+      <p>يحتفظ التطبيق باختياراتك التالية على جهازك فقط، لتجد اللعبة كما تركتها في المرة القادمة:</p>
+      <ul>
+        <li>اللغة (العربية أو الإنجليزية).</li>
+        <li>مظهر لوحة الشطرنج.</li>
+        <li>نمط اللوحة (مستوٍ أو ثلاثي الأبعاد).</li>
+      </ul>
+      <p style="margin-top:8px">هذه الإعدادات لا تغادر جهازك، ولا يمكننا الاطلاع عليها، وتُحذف بحذف التطبيق.</p>
+    </section>
+
+    <section>
+      <h2>اللعب ضد الحاسوب وعلى نفس الجهاز</h2>
+      <p>تجري المباريات بالكامل على جهازك، سواء لعبت ضد الحاسوب بمستوى (سهل، متوسط، صعب) أو مع لاعب آخر على الجهاز نفسه. لا تُرسل نقلاتك أو نتائجك إلى أي جهة.</p>
+    </section>
+
+    <section>
+      <h2>الإعلانات وأدوات التتبع</h2>
+      <p>لا يحتوي التطبيق على أي إعلانات، ولا يستخدم أدوات تحليلات أو تتبع، ولا يشارك أي معلومات مع أطراف ثالثة.</p>
+    </section>
+
+    <section>
+      <h2>خصوصية الأطفال</h2>
+      <p>لأن التطبيق لا يجمع أي بيانات، فهو مناسب لجميع الأعمار، ولا نجمع معلومات عن الأطفال أو غيرهم.</p>
+    </section>
+
+    <section>
+      <h2>التغييرات على هذه السياسة</h2>
+      <p>قد نحدّث سياسة الخصوصية عند الحاجة، وسيظهر تاريخ آخر تحديث في أسفل هذه الصفحة.</p>
+    </section>
+
+    <section>
+      <h2>التواصل مع الدعم الفني</h2>
+      <p>إذا كان لديك أي سؤال أو استفسار حول هذه السياسة أو التطبيق، يمكنك التواصل معنا:</p>
+      <div class="contact-list">
+        <a class="contact-item" href="mailto:omran_adam@yahoo.com">
+          <span class="ico">✉️</span>
+          <span class="lbl">البريد الإلكتروني</span>
+          <span class="val" dir="ltr">omran_adam@yahoo.com</span>
+        </a>
+        <a class="contact-item" href="tel:+201004279150">
+          <span class="ico">📞</span>
+          <span class="lbl">رقم الهاتف</span>
+          <span class="val" dir="ltr">+201004279150</span>
+        </a>
+      </div>
+    </section>
+  </div>
+
+  <!-- ENGLISH -->
+  <div data-lang="en">
+    <section>
+      <h2>Introduction</h2>
+      <p>Your privacy matters. <strong>Chess Gold</strong> is a simple, enjoyable chess game designed to be played without ads and without collecting any data about you. This page explains what the app does and does not do.</p>
+    </section>
+
+    <section>
+      <h2>Data We Collect</h2>
+      <p>The app does not collect any personal data from users. There is no account to create, and we do not collect your name, email, location, or device identifiers, nor do we send any information to external servers.</p>
+    </section>
+
+    <section>
+      <h2>Settings Saved on Your Device</h2>
+      <p>The app remembers the following choices on your device only, so the game is just as you left it next time:</p>
+      <ul>
+        <li>Language (Arabic or English).</li>
+        <li>Chessboard theme.</li>
+        <li>Board style (flat or 3D).</li>
+      </ul>
+      <p style="margin-top:8px">These settings never leave your device, we cannot access them, and they are removed when you delete the app.</p>
+    </section>
+
+    <section>
+      <h2>Playing vs. Computer and Pass-and-Play</h2>
+      <p>All games run entirely on your device, whether you play against the computer (Easy, Medium, Hard) or against another player on the same device. Your moves and results are not sent to anyone.</p>
+    </section>
+
+    <section>
+      <h2>Ads and Tracking</h2>
+      <p>The app contains no ads, uses no analytics or tracking tools, and shares no information with third parties.</p>
+    </section>
+
+    <section>
+      <h2>Children's Privacy</h2>
+      <p>Because the app collects no data, it is suitable for all ages, and we do not collect information about children or anyone else.</p>
+    </section>
+
+    <section>
+      <h2>Changes to This Policy</h2>
+      <p>We may update this privacy policy when needed. The date of the last update will appear at the bottom of this page.</p>
+    </section>
+
+    <section>
+      <h2>Contact Technical Support</h2>
+      <p>If you have any questions about this policy or the app, you can reach us at:</p>
+      <div class="contact-list">
+        <a class="contact-item" href="mailto:omran_adam@yahoo.com">
+          <span class="ico">✉️</span>
+          <span class="lbl">Email</span>
+          <span class="val" dir="ltr">omran_adam@yahoo.com</span>
+        </a>
+        <a class="contact-item" href="tel:+201004279150">
+          <span class="ico">📞</span>
+          <span class="lbl">Phone</span>
+          <span class="val" dir="ltr">+201004279150</span>
+        </a>
+      </div>
+    </section>
+  </div>
+
+  <button class="back" type="button" onclick="history.back()">
+    <span data-lang="ar">رجوع</span>
+    <span data-lang="en">Back</span>
+  </button>
+
+  <div class="updated">
+    <span data-lang="ar">آخر تحديث: ٦ أكتوبر ٢٠٢٦</span>
+    <span data-lang="en">Last updated: October 6, 2026</span>
+  </div>
+
+</div>
+
+<script>
+  (function () {
+    var html = document.documentElement;
+    var btn = document.getElementById('toggle');
+    function apply(lang) {
+      html.lang = lang;
+      html.dir = lang === 'ar' ? 'rtl' : 'ltr';
+      btn.textContent = lang === 'ar' ? 'English' : 'العربية';
+      document.title = lang === 'ar' ? 'Chess Gold — سياسة الخصوصية' : 'Chess Gold — Privacy Policy';
+    }
+    btn.addEventListener('click', function () {
+      apply(html.lang === 'ar' ? 'en' : 'ar');
+    });
+  })();
+</script>
+</body>
+</html>
